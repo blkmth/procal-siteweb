@@ -2,4 +2,5 @@
 @import url('site.css');
 @import url('components/footer.css');
 @import url('pages/about.css');
+@import url('pages/service-detail.css');
 @import url('global/overrides.css');
