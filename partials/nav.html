@@ -1,0 +1,31 @@
+<nav id="navbar" class="site-nav">
+  <div class="nav-container">
+    <a href="{{ROOT}}{{HOME}}#accueil" class="nav-logo">
+      <img src="{{ROOT}}assets/images/logo/logo1.png" alt="PROCAL logo" class="nav-logo__img" width="280" height="125" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{{ROOT}}{{HOME}}#accueil">Accueil</a></li>
+      <li><a href="{{ROOT}}{{HOME}}#secteurs">Secteurs</a></li>
+      <li class="nav-dropdown" id="nav-services-dropdown">
+        <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-controls="nav-services-menu">
+          Services <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <ul class="nav-dropdown-menu" id="nav-services-menu" role="menu">
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/etalonnage.html">Étalonnage des instruments</a></li>
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/controle.html">Contrôle métrologique</a></li>
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/detecteurs.html">Détecteurs de métaux</a></li>
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/aimants.html">Aimants &amp; séparateurs</a></li>
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/metrologie-medicale.html">Métrologie médicale</a></li>
+          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/maintenance.html">Maintenance &amp; assistance</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ROOT}}{{HOME}}#pourquoi-nous">Expertise</a></li>
+      <li><a href="{{ROOT}}{{HOME}}#a-propos">À propos</a></li>
+      <li><a href="{{ROOT}}{{HOME}}#contact">Contact</a></li>
+    </ul>
+    <a href="{{ROOT}}devis.html" class="btn-nav-rdv"><i class="fas fa-file-invoice"></i> Demander un devis</a>
+    <button type="button" class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,77 @@
+/* Section À propos — blocs harmonisés */
+
+.about-section {
+  padding: var(--section-py) 0;
+  background: var(--white);
+}
+
+.about-grid {
+  display: block;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.about-content {
+  width: 100%;
+}
+
+.about-content .section-tag {
+  margin-bottom: 1rem;
+}
+
+.about-content .section-title {
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+
+.about-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Encadré commun : présentation, mission, vision */
+.about-highlight-box {
+  display: block;
+  background: rgba(85, 148, 227, 0.06);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  max-width: none;
+}
+
+.about-highlight-box--vision {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--light-bg);
+}
+
+.about-highlight-box__icon {
+  font-size: 1.75rem;
+  color: var(--brand);
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+.about-highlight-box__title {
+  font-family: var(--font-title);
+  font-size: var(--fs-nav);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  display: block;
+  margin-bottom: 0.65rem;
+}
+
+.about-highlight-box p {
+  font-size: var(--fs-lg);
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin: 0;
+  text-wrap: pretty;
+}

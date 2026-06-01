@@ -1,0 +1,83 @@
+/* Typographie globale renforcée */
+
+h1 { font-size: clamp(2.25rem, 4.5vw, 3.35rem); }
+h2 { font-size: clamp(2rem, 4vw, 2.95rem); }
+h3 { font-size: clamp(1.75rem, 3.4vw, 2.35rem); }
+h4 { font-size: clamp(1.2rem, 2.2vw, 1.45rem); }
+
+p,
+.section-desc,
+.service-desc,
+.argument-card p,
+.contact-item p {
+  font-size: var(--fs-base);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+}
+
+/* Section accueil — +15 % sur les textes du hero */
+#accueil.hero-section .hero-title {
+  font-size: clamp(1.9rem, 3.7vw, 2.88rem);
+}
+
+#accueil.hero-section .hero-title .highlight-gold {
+  font-size: 0.92em;
+}
+
+#accueil.hero-section .hero-subtitle {
+  font-size: clamp(1.22rem, 2.3vw, 1.44rem);
+}
+
+#accueil.hero-section .hero-buttons .btn-primary,
+#accueil.hero-section .hero-buttons .btn-secondary {
+  font-size: calc(var(--fs-btn) * 1.15);
+}
+
+.service-card-caption .service-title {
+  font-size: 1.2rem;
+}
+
+.service-hero-desc,
+.cta-content p {
+  font-size: var(--fs-lg);
+}
+
+/* Carrousel unifié — pages services = style accueil */
+.hero-section--service {
+  min-height: 72vh;
+}
+
+.hero-section--service .hero-content {
+  padding-bottom: 100px;
+}
+
+/* Masquer ancien carrousel services */
+.service-gallery-section,
+.service-page-carousel,
+.service-carousel-track,
+.service-carousel-slide {
+  display: none !important;
+}
+
+/* Ancien footer masqué si présent */
+.footer:not(.site-footer) {
+  display: none;
+}
+
+/* Utilitaires layout */
+.devis-contact-block {
+  max-width: 780px;
+  margin: 3rem auto 0;
+}
+
+.service-details .container {
+  padding: 3rem 0 4rem;
+  text-align: center;
+}
+
+.service-details .about-paragraph {
+  max-width: var(--content-wide);
+  margin: 0 auto 1.5rem;
+}
