@@ -16,11 +16,40 @@ function initCarouselSection(section) {
   const INTERVAL_MS = 5500;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Ensure background images are lazy-loaded when a slide becomes active.
+  function extractBg(slide) {
+    // support inline style background-image or data-bg attribute
+    const inline = slide.style && slide.style.backgroundImage;
+    const data = slide.getAttribute('data-bg');
+    if (data) return data;
+    if (inline) {
+      const m = inline.match(/url\(["']?(.*?)["']?\)/);
+      if (m && m[1]) return m[1];
+    }
+    return null;
+  }
+
+  function loadBg(index) {
+    const idx = (index + slides.length) % slides.length;
+    const slide = slides[idx];
+    if (!slide) return;
+    if (slide.dataset.bgLoaded === 'true') return;
+    const url = extractBg(slide);
+    if (!url) return;
+    // apply background-image (lazy)
+    slide.style.backgroundImage = `url("${url}")`;
+    slide.dataset.bgLoaded = 'true';
+  }
+
   function goToSlide(index) {
     slides[current].classList.remove('active');
     if (dots[current]) dots[current].classList.remove('active');
 
     current = (index + slides.length) % slides.length;
+
+    // load current and next slide backgrounds for smooth transition
+    loadBg(current);
+    loadBg(current + 1);
 
     slides[current].classList.add('active');
     if (dots[current]) dots[current].classList.add('active');
@@ -61,6 +90,10 @@ function initCarouselSection(section) {
 
   section.addEventListener('mouseenter', stopAutoplay);
   section.addEventListener('mouseleave', startAutoplay);
+
+  // Load the first slides immediately (current + next) to avoid white flash
+  loadBg(current);
+  loadBg(current + 1);
 
   startAutoplay();
 }
