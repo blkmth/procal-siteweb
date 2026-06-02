@@ -36,7 +36,7 @@
     --fs-btn: 1rem; /* 16px — boutons */
 
     /* Logo */
-    --logo-height: 125px;
+    --logo-height: 140px;
 
     /* Espacements */
     --section-py: 90px;
@@ -389,6 +389,11 @@ p {
     line-height: 1.1;
     flex-shrink: 0;
     gap: 12px;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.02);
 }
 
 .nav-logo__img {
@@ -448,10 +453,17 @@ p {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-dark);
-    padding: 10px 16px;
-    border-radius: 3px;
-    transition: var(--transition);
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    position: relative;
+}
+
+.nav-links > li > a:hover,
+.nav-dropdown-toggle:hover {
+    color: var(--brand);
+    background: rgba(85, 148, 227, 0.08);
 }
 
 .nav-links a {
@@ -461,11 +473,17 @@ p {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-dark);
-    padding: 10px 16px;
-    border-radius: 3px;
-    transition: var(--transition);
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     display: inline-block;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--brand);
+    background: rgba(85, 148, 227, 0.08);
 }
 
 /* Menu déroulant Services */
@@ -3010,8 +3028,8 @@ p {
 /* Responsive logo & nav */
 @media (max-width: 1024px) {
     :root {
-        --logo-height: 90px;
-        --nav-height: 118px;
+        --logo-height: 120px;
+        --nav-height: 128px;
     }
 
     .nav-dropdown:hover .nav-dropdown-menu {
@@ -3042,8 +3060,8 @@ p {
 
 @media (max-width: 768px) {
     :root {
-        --logo-height: 72px;
-        --nav-height: 100px;
+        --logo-height: 95px;
+        --nav-height: 110px;
         --section-py: 56px;
     }
 
@@ -3071,8 +3089,8 @@ p {
 
 @media (max-width: 480px) {
     :root {
-        --logo-height: 64px;
-        --nav-height: 92px;
+        --logo-height: 80px;
+        --nav-height: 100px;
     }
 
     .nav-links {
