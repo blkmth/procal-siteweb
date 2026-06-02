@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Secteurs — PROCAL</title>
+  <meta name="description" content="Les 7 secteurs d'activité de PROCAL. Industrie, Agroalimentaire, Pharmaceutique, Laboratoires, Santé & Biomédical, Mines, Production Industrielle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="asset/logo_sans_fond.png" alt="PROCAL logo" class="nav-logo__img" />
+        <div class="logo-text">
+          <span class="logo-main">PROCAL</span>
+          <span class="logo-sub">PROCESS CALIBRATION</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pourquoi-nous">Expertise</a></li>
+        <li><a href="index.html#a-propos">À Propos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn-nav-rdv"><i class="fas fa-calendar-check"></i> Prendre RDV</a>
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Secteurs hero with overlay -->
+    <section id="secteurs" class="secteurs-hero" aria-label="Nos secteurs">
+      <div class="secteurs-hero__bg" style="background-image:url('assets/images/services/calibrage.jpg')" aria-hidden="true"></div>
+      <div class="secteurs-hero__overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="secteurs-hero__content">
+          <span class="section-tag">Nos Secteurs</span>
+          <h1 class="secteurs-hero__title">Nous intervenons dans<br/><span class="highlight-blue">7 secteurs</span></h1>
+          <p class="secteurs-hero__intro">De l'industrie lourde aux environnements cliniques, PROCAL adapte son expertise et ses process pour garantir précision, conformité et performance dans chaque contexte opérationnel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards grid -->
+    <section class="secteurs-cards">
+      <div class="container">
+        <div class="cards-grid">
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-industry"></i></div>
+            <h3 class="sector-card__title">Industrie</h3>
+            <p class="sector-card__text">Conception, maintenance et optimisation d'infrastructures industrielles.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-leaf"></i></div>
+            <h3 class="sector-card__title">Agroalimentaire</h3>
+            <p class="sector-card__text">Sécurité et conformité pour les lignes de production alimentaire.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-flask"></i></div>
+            <h3 class="sector-card__title">Pharmaceutique</h3>
+            <p class="sector-card__text">Installations conformes aux normes de qualité et traçabilité.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-microscope"></i></div>
+            <h3 class="sector-card__title">Laboratoires</h3>
+            <p class="sector-card__text">Aménagements techniques et réseaux pour laboratoires d'analyse.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-heart-pulse"></i></div>
+            <h3 class="sector-card__title">Métrologie Médicale</h3>
+            <p class="sector-card__text">Contrôles et certificats pour équipements biomédicaux.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-magnet"></i></div>
+            <h3 class="sector-card__title">Aimants &amp; Séparateurs</h3>
+            <p class="sector-card__text">Mesure et certification des systèmes magnétiques.</p>
+          </article>
+
+          <article class="sector-card">
+            <div class="sector-card__icon"><i class="fas fa-wrench"></i></div>
+            <h3 class="sector-card__title">Maintenance</h3>
+            <p class="sector-card__text">Maintenance préventive et corrective pour garantir disponibilité et performance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

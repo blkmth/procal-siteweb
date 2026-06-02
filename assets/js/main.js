@@ -3,6 +3,7 @@
  */
 import { injectLayout } from './modules/layout.js';
 import { initCarousels } from './modules/carousel.js';
+import initSecteursCarousel from './modules/secteursCarousel.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   await injectLayout();
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   initParallax();
   initFileInput();
   initCarousels();
+  initSecteursCarousel();
 });
 
 function initNavbar() {
