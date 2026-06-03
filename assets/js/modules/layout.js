@@ -12,7 +12,7 @@ export async function injectLayout() {
 
   if (navSlot) {
     tasks.push(
-      fetch(base + 'partials/nav.html')
+      fetch(base + 'partials/nav.html?v=' + new Date().getTime())
         .then(function (r) {
           if (!r.ok) throw new Error('nav');
           return r.text();
@@ -25,7 +25,7 @@ export async function injectLayout() {
 
   if (footerSlot) {
     tasks.push(
-      fetch(base + 'partials/footer.html')
+      fetch(base + 'partials/footer.html?v=' + new Date().getTime())
         .then(function (r) {
           if (!r.ok) throw new Error('footer');
           return r.text();
