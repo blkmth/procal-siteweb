@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   initNavActiveLinks();
   initFormDevis();
   initFormContact();
-  initEmailJS();
   initSmoothScroll();
   initParallax();
   initFileInput();
@@ -187,11 +186,7 @@ function initNavActiveLinks() {
   setActiveLink();
 }
 
-function initEmailJS() {
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init('YsYTpZcFdwxxzp1PX');
-  }
-}
+
 
 function initFormDevis() {
   const form = document.getElementById('form-devis');
@@ -225,25 +220,47 @@ function initFormDevis() {
     btnSubmit.disabled = true;
     btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
-    emailjs.send('service_s5yppbv', 'template_rnenk9w', {
-      nom: nom.value.trim(),
-      entreprise: entreprise.value.trim(),
-      telephone: telephone.value.trim(),
-      email: email.value.trim(),
-      prestation: prestation.options[prestation.selectedIndex].text,
-      description: (descriptionEl && descriptionEl.value.trim()) || 'Non renseigné',
-      date_envoi: new Date().toLocaleString('fr-FR')
-    }).then(function () {
-      form.style.display = 'none';
-      if (successMsg) {
-        successMsg.style.display = 'block';
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const formData = new FormData();
+    formData.append("access_key", "9a5fc893-1160-469d-91a3-420da864d9f5");
+    formData.append("subject", "Nouvelle demande de devis PROCAL");
+    formData.append("Nom", nom.value.trim());
+    formData.append("Entreprise", entreprise.value.trim());
+    formData.append("Téléphone", telephone.value.trim());
+    formData.append("Email", email.value.trim());
+    formData.append("Prestation", prestation.options[prestation.selectedIndex].text);
+    formData.append("Description", (descriptionEl && descriptionEl.value.trim()) || 'Non renseigné');
+
+    const fichierInput = document.getElementById('fichier');
+    const hasFile = fichierInput && fichierInput.files.length > 0;
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    })
+    .then(async (response) => {
+      if (response.status === 200) {
+        form.style.display = 'none';
+        if (successMsg) {
+          successMsg.style.display = 'block';
+          if (hasFile) {
+            successMsg.innerHTML = '<i class="fas fa-circle-check"></i>' +
+              '<h3>Demande envoyée avec succès</h3>' +
+              '<p>Nous vous contacterons dans les <strong>24 heures</strong>.</p>' +
+              '<p style="margin-top:10px;font-size:0.9rem;color:var(--text-muted);">' +
+              '<i class="fas fa-paperclip"></i> Votre pièce jointe n\'a pas pu être transmise automatiquement. ' +
+              'Merci de l\'envoyer par email à <a href="mailto:Procal@procal-ci.com" style="color:var(--brand);font-weight:600;">Procal@procal-ci.com</a></p>';
+          }
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        throw new Error("Erreur serveur");
       }
-    }).catch(function () {
-      alert('Erreur lors de l\'envoi. Contactez-nous par téléphone.');
-      btnSubmit.disabled = false;
-      btnSubmit.innerHTML = originalText;
-    });
+    })
+      .catch((error) => {
+        alert("Erreur lors de l'envoi. Contactez-nous par téléphone.");
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalText;
+      });
   });
 }
 
@@ -270,20 +287,31 @@ function initFormContact() {
     btnSubmit.disabled = true;
     btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
 
-    emailjs.send('service_s5yppbv', 'template_1wzifal', {
-      nom: nom.value.trim(),
-      email: email.value.trim(),
-      telephone: document.getElementById('contact-tel')?.value.trim() || 'Non renseigné',
-      message: message.value.trim(),
-      date_envoi: new Date().toLocaleString('fr-FR')
-    }).then(function () {
-      form.style.display = 'none';
-      if (successMsg) successMsg.style.display = 'block';
-    }).catch(function () {
-      alert('Erreur lors de l\'envoi.');
-      btnSubmit.disabled = false;
-      btnSubmit.innerHTML = originalText;
-    });
+    const formData = new FormData();
+    formData.append("access_key", "9a5fc893-1160-469d-91a3-420da864d9f5");
+    formData.append("subject", "Nouveau message de contact PROCAL");
+    formData.append("Nom", nom.value.trim());
+    formData.append("Email", email.value.trim());
+    formData.append("Téléphone", document.getElementById('contact-tel')?.value.trim() || 'Non renseigné');
+    formData.append("Message", message.value.trim());
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    })
+      .then(async (response) => {
+        if (response.status === 200) {
+          form.style.display = 'none';
+          if (successMsg) successMsg.style.display = 'block';
+        } else {
+          throw new Error("Erreur serveur");
+        }
+      })
+      .catch((error) => {
+        alert("Erreur lors de l'envoi.");
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalText;
+      });
   });
 }
 
