@@ -17,6 +17,11 @@ p,
   font-size: clamp(1.0625rem, 2vw, 1.25rem);
 }
 
+/* Hero accueil — bloc texte centré dans la zone sous la nav */
+#accueil.hero-section {
+  justify-content: center;
+}
+
 /* Section accueil — +15 % sur les textes du hero */
 #accueil.hero-section .hero-title {
   font-size: clamp(1.9rem, 3.7vw, 2.88rem);
@@ -50,7 +55,7 @@ p,
 }
 
 .hero-section--service .hero-content {
-  padding-bottom: 100px;
+  margin-bottom: 2.5rem;
 }
 
 /* Masquer ancien carrousel services */

@@ -13,7 +13,7 @@ function initCarouselSection(section) {
 
   let current = 0;
   let intervalId = null;
-  const INTERVAL_MS = 5500;
+  const INTERVAL_MS = 3000;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Ensure background images are lazy-loaded when a slide becomes active.
