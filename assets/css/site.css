@@ -36,12 +36,12 @@
     --fs-btn: 1rem; /* 16px — boutons */
 
     /* Logo */
-    --logo-height: 140px;
+    --logo-height: 50px;
 
     /* Espacements */
     --section-py: 90px;
     --container: 1200px;
-    --nav-height: 148px;
+    --nav-height: 70px;
 
     /* Ombres */
     --shadow-sm: 0 2px 12px rgba(10, 22, 40, 0.08);
@@ -3057,8 +3057,8 @@ p {
 /* Responsive logo & nav */
 @media (max-width: 1024px) {
     :root {
-        --logo-height: 120px;
-        --nav-height: 128px;
+        --logo-height: 50px;
+        --nav-height: 70px;
     }
 
     .nav-dropdown:hover .nav-dropdown-menu {
@@ -3089,8 +3089,8 @@ p {
 
 @media (max-width: 768px) {
     :root {
-        --logo-height: 95px;
-        --nav-height: 110px;
+        --logo-height: 45px;
+        --nav-height: 60px;
         --section-py: 56px;
     }
 
@@ -3118,8 +3118,8 @@ p {
 
 @media (max-width: 480px) {
     :root {
-        --logo-height: 80px;
-        --nav-height: 100px;
+        --logo-height: 40px;
+        --nav-height: 55px;
     }
 
     .nav-links {

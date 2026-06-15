@@ -30,11 +30,11 @@
   --fs-footer: 1.0625rem;
   --fs-card: 1.0625rem;
 
-  --logo-height: 140px;
+  --logo-height: 60px;
   --section-py: 96px;
   --container: 1200px;
   --content-wide: min(100%, 56rem);
-  --nav-height: 148px;
+  --nav-height: 70px;
 
   --shadow-sm: 0 2px 12px rgba(10, 22, 40, 0.08);
   --shadow-md: 0 6px 30px rgba(10, 22, 40, 0.14);
