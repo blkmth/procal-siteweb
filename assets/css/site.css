@@ -31,15 +31,15 @@
     /* Typographie */
     --font-title: "Barlow Condensed", sans-serif;
     --font-body: "Source Serif 4", Georgia, serif;
-    --fs-base: 1.0625rem;
+    --fs-base: 1.4rem;
     /* ~17px — paragraphes min 16px */
-    --fs-nav: 1rem;
-    /* 16px — menu */
-    --fs-btn: 1rem;
+    --fs-nav: 1.4rem;
+    /* 16.48px — menu */
+    --fs-btn: 1.4rem;
     /* 16px — boutons */
 
     /* Logo */
-    --logo-height: 100px;
+    --logo-height: 132px;
 
     /* Espacements */
     --section-py: 90px;
@@ -358,7 +358,8 @@ p {
     left: 0;
     width: 100%;
     z-index: 1000;
-    pointer-events: none; /* Allows clicks to pass through the empty space around the navbar */
+    pointer-events: none;
+    /* Allows clicks to pass through the empty space around the navbar */
     transition: top 0.4s ease;
 }
 
@@ -374,24 +375,26 @@ p {
 }
 
 .nav-container {
-    pointer-events: auto; /* Re-enable clicks inside the actual navbar */
-    width: fit-content;
-    max-width: 95%;
+    pointer-events: auto;
+    /* Re-enable clicks inside the actual navbar */
+    width: 95%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 8px 32px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     min-height: var(--nav-height);
     height: auto;
     gap: 32px;
-    
+
     /* Background and borders moved here so they hug the content */
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(201, 168, 76, 0.25);
-    border-radius: 100px; /* Fully rounded pill shape */
+    border-radius: 100px;
+    /* Fully rounded pill shape */
     transition: all 0.4s ease;
 }
 
@@ -421,9 +424,9 @@ p {
 }
 
 .site-footer__logo {
-    height: 160px;
+    height: 400px;
     width: auto;
-    max-width: 600px;
+    max-width: 1000px;
     object-fit: contain;
     object-position: left center;
     display: block;
@@ -431,7 +434,7 @@ p {
 
 .logo-main {
     font-family: var(--font-title);
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
     letter-spacing: 0.12em;
     color: var(--gold);
@@ -440,7 +443,7 @@ p {
 
 .logo-sub {
     font-family: var(--font-title);
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -453,9 +456,6 @@ p {
     display: flex;
     align-items: center;
     gap: 6px;
-    flex: 1;
-    justify-content: flex-end;
-    margin-left: auto;
     margin-right: 12px;
     padding-left: 24px;
 }
@@ -3219,7 +3219,7 @@ p {
 /* Responsive logo & nav */
 @media (max-width: 1024px) {
     :root {
-        --logo-height: 50px;
+        --logo-height: 62px;
         --nav-height: 70px;
     }
 
@@ -3251,7 +3251,7 @@ p {
 
 @media (max-width: 768px) {
     :root {
-        --logo-height: 65px;
+        --logo-height: 81px;
         --nav-height: 60px;
         --section-py: 56px;
     }
@@ -3281,7 +3281,7 @@ p {
 
 @media (max-width: 480px) {
     :root {
-        --logo-height: 55px;
+        --logo-height: 69px;
         --nav-height: 55px;
     }
 

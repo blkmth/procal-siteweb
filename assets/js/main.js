@@ -27,8 +27,18 @@ function initNavbar() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
+  let lastScrollY = window.scrollY;
+
   function handleNavbarScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    const currentScrollY = window.scrollY;
+    navbar.classList.toggle('scrolled', currentScrollY > 50);
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      navbar.style.top = '-150px';
+    } else {
+      navbar.style.top = currentScrollY > 50 ? '12px' : '24px';
+    }
+    lastScrollY = currentScrollY;
   }
 
   window.addEventListener('scroll', handleNavbarScroll, { passive: true });
