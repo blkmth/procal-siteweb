@@ -36,7 +36,7 @@ function initNavbar() {
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       navbar.style.top = '-150px';
     } else {
-      navbar.style.top = currentScrollY > 50 ? '12px' : '24px';
+      navbar.style.top = '0px';
     }
     lastScrollY = currentScrollY;
   }

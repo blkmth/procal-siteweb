@@ -17,9 +17,9 @@
 }
 
 .site-footer__logo {
-  height: var(--logo-height);
+  height: calc(var(--logo-height) * 2);
   width: auto;
-  max-width: 280px;
+  max-width: 600px;
   object-fit: contain;
   object-position: left center;
 }
@@ -99,7 +99,7 @@
   gap: 0.5rem;
 }
 
-.site-footer__contact-list > li {
+.site-footer__contact-list>li {
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
@@ -108,7 +108,7 @@
   line-height: 1.55;
 }
 
-.site-footer__contact-list > li > i {
+.site-footer__contact-list>li>i {
   color: var(--brand);
   width: 1.1rem;
   margin-top: 0.2rem;
