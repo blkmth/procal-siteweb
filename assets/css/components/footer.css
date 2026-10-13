@@ -23,6 +23,7 @@
   max-width: 100%;
   object-fit: contain;
   object-position: left center;
+  display: block;
 }
 
 .site-footer__tagline {
@@ -39,24 +40,63 @@
   flex-wrap: wrap;
 }
 
-.site-footer__social-link {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
+.site-footer__whatsapp {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: var(--white);
-  border: 1px solid var(--border);
+  gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  background: #25d366;
+  color: var(--white);
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   border-radius: 4px;
-  color: var(--text-mid);
-  font-size: 1rem;
   transition: var(--transition);
 }
 
-.site-footer__social-link:hover {
-  background: var(--brand);
+.site-footer__whatsapp i {
+  font-size: 1.2rem;
+}
+
+.site-footer__whatsapp:hover {
+  background: #1ebe5b;
   color: var(--white);
-  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
+/* Bouton WhatsApp flottant (toutes les pages) */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: var(--white);
+  font-size: 1.75rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  color: var(--white);
+  transform: scale(1.08);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    right: 14px;
+    bottom: 14px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.55rem;
+  }
 }
 
 .site-footer__heading {
@@ -161,7 +201,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  padding: 1.25rem 0 1.5rem;
+  /* place à droite pour le bouton WhatsApp flottant */
+  padding: 1.25rem 72px 1.5rem 0;
 }
 
 .site-footer__bottom p {
@@ -189,5 +230,6 @@
   .site-footer__bottom {
     flex-direction: column;
     text-align: center;
+    padding: 1.25rem 0 84px;
   }
 }

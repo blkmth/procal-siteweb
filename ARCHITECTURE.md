@@ -9,7 +9,9 @@ Site vitrine **statique** (HTML, CSS, JavaScript). Pas de base de données ni de
 ```text
 procal-site/
 ├── index.html              # Accueil
-├── devis.html              # Formulaire de devis
+├── devis.html              # Demande de devis (bouton email)
+├── secteurs.html           # Secteurs d'activité
+├── a-propos.html           # À propos
 ├── ARCHITECTURE.md         # Ce fichier
 ├── pages/services/         # 6 pages services
 │   ├── etalonnage.html
@@ -30,14 +32,15 @@ procal-site/
 │   │   └── pages/          # À propos, etc.
 │   ├── js/
 │   │   ├── main.js         # Point d'entrée JS
-│   │   └── modules/        # carousel.js, layout.js
+│   │   └── modules/        # carousel.js, layout.js, secteursCarousel.js
 │   └── images/
-│       ├── logo/
+│       ├── logo/           # logo-web.png (version web recadrée)
 │       ├── acceuil/        # Slides hero accueil
+│       ├── secteur/        # Images des cartes secteurs
+│       ├── a propos/
 │       └── services/       # Images cartes + carrousels
 ├── scripts/
 │   └── build-pages.py      # Régénère les pages services (optionnel)
-└── service-*.html          # Redirections (anciennes URLs)
 ```
 
 ### Fichiers supprimés (plus utiles)
@@ -82,12 +85,11 @@ Adaptées à un site statique comme PROCAL.
 2. Connecter un dépôt Git **ou** envoyer le dossier `procal-site` (drag & drop).
 3. **Racine du site** = dossier qui contient `index.html` (souvent la racine du repo).
 4. Pas de commande de build à configurer (site déjà prêt).
-5. Après déploiement : tester accueil, devis, pages services, formulaires.
+5. Après déploiement : tester accueil, devis, pages services, boutons email et WhatsApp.
 
 ### Limites gratuites (générales)
 
 - Bande passante suffisante pour un site vitrine PME.
-- Formulaires : gérés par **EmailJS** (voir ci-dessous), pas par l’hébergeur.
 - Nom personnalisé (`www.procal-ci.com`) : possible, souvent via achat du domaine ailleurs + DNS.
 
 ---
@@ -120,17 +122,17 @@ Utiles pour un **nom de domaine professionnel**, un **email `@procal-ci.com`**, 
 
 ---
 
-## Formulaires (devis & contact)
+## Contact (devis & message)
 
-Le site utilise **EmailJS** côté navigateur :
+Le site n'envoie aucun email lui-même : pas de formulaire, pas de service tiers.
 
-- Clé publique dans `assets/js/main.js`
-- Compte gratuit EmailJS : quota limité (suffisant pour démarrer)
-- Compte payant EmailJS : plus d’envois / fiabilité
+- Les boutons « Nous écrire » (accueil) et « Envoyer ma demande par email » (devis) sont des liens
+  `mailto:procal@procal-ci.com` avec un objet pré-rempli : ils ouvrent la messagerie du visiteur.
+- Un bouton WhatsApp (footer + bouton flottant, dans `partials/footer.html`) ouvre une discussion
+  avec le 07 57 57 57 87 (`https://wa.me/2250757575787`).
 
-Aucun PHP ni Node n’est requis sur l’hébergeur pour les formulaires actuels.
-
-Pour une évolution future (base de données, pièces jointes lourdes) : API backend (Node, PHP, Firebase) — hors scope du déploiement statique actuel.
+Pour une évolution future (formulaire avec envoi automatique) : service type Web3Forms / Formspree
+ou API backend (Node, PHP).
 
 ---
 
@@ -138,9 +140,9 @@ Pour une évolution future (base de données, pièces jointes lourdes) : API bac
 
 - [ ] Tester sur mobile, tablette, desktop
 - [ ] Vérifier tous les liens (menu, services, devis, footer)
-- [ ] Tester l’envoi des formulaires (EmailJS configuré)
+- [ ] Tester les boutons email (mailto) et WhatsApp
 - [ ] Remplacer les numéros / emails si encore des placeholders
-- [ ] Compresser ou optimiser les images lourdes si besoin
+- [ ] Garder les images légères : max 1920 px de large, JPEG qualité ~80 (une image < 500 Ko)
 - [ ] Configurer le domaine `procal-ci.com` + HTTPS
 - [ ] Soumettre le site à Google Search Console (référencement)
 
