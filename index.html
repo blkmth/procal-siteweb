@@ -302,7 +302,7 @@
         <span class="section-tag">Devis Gratuit</span>
         <h2 class="section-title">Obtenez votre devis <span class="highlight-gold">sous 24h</span></h2>
         <p class="section-desc">
-          Décrivez votre besoin via notre formulaire en ligne. Notre équipe vous répond avec une proposition adaptée.
+          Décrivez votre besoin par email. Notre équipe vous répond avec une proposition adaptée.
         </p>
       </div>
       <div class="devis-cta-banner">
@@ -376,35 +376,16 @@
           </div>
         </div>
 
-        <!-- Formulaire de contact rapide -->
-        <form id="form-contact" class="contact-form" novalidate>
-          <div class="form-group">
-            <label for="contact-nom">Nom <span class="required">*</span></label>
-            <input type="text" id="contact-nom" name="nom" placeholder="Votre nom" required />
-          </div>
-          <div class="form-group">
-            <label for="contact-email">Email <span class="required">*</span></label>
-            <input type="email" id="contact-email" name="email" placeholder="Votre email" required />
-          </div>
-          <div class="form-group">
-            <label for="contact-tel">Téléphone</label>
-            <input type="tel" id="contact-tel" name="telephone" placeholder="+225 07 00 00 00 00" />
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Message <span class="required">*</span></label>
-            <textarea id="contact-message" name="message" rows="4" placeholder="Votre message..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit" id="btn-submit-contact">
+        <!-- Contact par email -->
+        <div class="contact-form mail-cta">
+          <i class="fas fa-envelope-open-text mail-cta__icon"></i>
+          <h3>Écrivez-nous</h3>
+          <p>Cliquez sur le bouton ci-dessous : votre messagerie s'ouvrira avec notre adresse déjà renseignée.</p>
+          <a href="mailto:Procal@procal-ci.com?subject=Demande%20de%20contact%20PROCAL" class="btn-submit">
             <i class="fas fa-paper-plane"></i>
-            Envoyer
-          </button>
-
-          <!-- Message de succès contact -->
-          <div class="form-success" id="success-contact" style="display:none;">
-            <i class="fas fa-circle-check"></i>
-            <p>Message envoyé ! Nous vous répondons sous 24h.</p>
-          </div>
-        </form>
+            Nous écrire
+          </a>
+        </div>
 
       </div>
     </div>
@@ -412,7 +393,6 @@
 
   <div id="site-footer"></div>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module" src="assets/js/main.js"></script>
 
 </body>

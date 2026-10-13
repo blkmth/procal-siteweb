@@ -14,11 +14,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   initScrollAnimations();
   initCounters();
   initNavActiveLinks();
-  initFormDevis();
-  initFormContact();
   initSmoothScroll();
   initParallax();
-  initFileInput();
   initCarousels();
   initSecteursCarousel();
 });
@@ -198,133 +195,6 @@ function initNavActiveLinks() {
 
 
 
-function initFormDevis() {
-  const form = document.getElementById('form-devis');
-  const btnSubmit = document.getElementById('btn-submit-devis');
-  const successMsg = document.getElementById('success-devis');
-  if (!form || !btnSubmit) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const nom = form.querySelector('[name="nom"]');
-    const entreprise = form.querySelector('[name="entreprise"]');
-    const telephone = form.querySelector('[name="telephone"]');
-    const email = form.querySelector('[name="email"]');
-    const prestation = form.querySelector('[name="prestation"]');
-    const descriptionEl = form.querySelector('[name="description"]');
-
-    [nom, entreprise, telephone, email, prestation].forEach(function (f) {
-      if (f) f.style.borderColor = '';
-    });
-
-    let isValid = true;
-    if (!nom?.value.trim()) { if (nom) nom.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!entreprise?.value.trim()) { if (entreprise) entreprise.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!telephone?.value.trim()) { if (telephone) telephone.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!email?.value.trim() || !email.value.includes('@')) { if (email) email.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!prestation?.value) { if (prestation) prestation.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!isValid) return;
-
-    const originalText = btnSubmit.innerHTML;
-    btnSubmit.disabled = true;
-    btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-    const formData = new FormData();
-    formData.append("access_key", "9a5fc893-1160-469d-91a3-420da864d9f5");
-    formData.append("subject", "Nouvelle demande de devis PROCAL");
-    formData.append("Nom", nom.value.trim());
-    formData.append("Entreprise", entreprise.value.trim());
-    formData.append("Téléphone", telephone.value.trim());
-    formData.append("Email", email.value.trim());
-    formData.append("Prestation", prestation.options[prestation.selectedIndex].text);
-    formData.append("Description", (descriptionEl && descriptionEl.value.trim()) || 'Non renseigné');
-
-    const fichierInput = document.getElementById('fichier');
-    const hasFile = fichierInput && fichierInput.files.length > 0;
-
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    })
-    .then(async (response) => {
-      if (response.status === 200) {
-        form.style.display = 'none';
-        if (successMsg) {
-          successMsg.style.display = 'block';
-          if (hasFile) {
-            successMsg.innerHTML = '<i class="fas fa-circle-check"></i>' +
-              '<h3>Demande envoyée avec succès</h3>' +
-              '<p>Nous vous contacterons dans les <strong>24 heures</strong>.</p>' +
-              '<p style="margin-top:10px;font-size:0.9rem;color:var(--text-muted);">' +
-              '<i class="fas fa-paperclip"></i> Votre pièce jointe n\'a pas pu être transmise automatiquement. ' +
-              'Merci de l\'envoyer par email à <a href="mailto:Procal@procal-ci.com" style="color:var(--brand);font-weight:600;">Procal@procal-ci.com</a></p>';
-          }
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      } else {
-        throw new Error("Erreur serveur");
-      }
-    })
-      .catch((error) => {
-        alert("Erreur lors de l'envoi. Contactez-nous par téléphone.");
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = originalText;
-      });
-  });
-}
-
-function initFormContact() {
-  const form = document.getElementById('form-contact');
-  const btnSubmit = document.getElementById('btn-submit-contact');
-  const successMsg = document.getElementById('success-contact');
-  if (!form || !btnSubmit) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const nom = document.getElementById('contact-nom');
-    const email = document.getElementById('contact-email');
-    const message = document.getElementById('contact-message');
-
-    [nom, email, message].forEach(function (f) { if (f) f.style.borderColor = ''; });
-    let isValid = true;
-    if (!nom.value.trim()) { nom.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!email.value.trim() || !email.value.includes('@')) { email.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!message.value.trim()) { message.style.borderColor = '#e74c3c'; isValid = false; }
-    if (!isValid) return;
-
-    const originalText = btnSubmit.innerHTML;
-    btnSubmit.disabled = true;
-    btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
-
-    const formData = new FormData();
-    formData.append("access_key", "9a5fc893-1160-469d-91a3-420da864d9f5");
-    formData.append("subject", "Nouveau message de contact PROCAL");
-    formData.append("Nom", nom.value.trim());
-    formData.append("Email", email.value.trim());
-    formData.append("Téléphone", document.getElementById('contact-tel')?.value.trim() || 'Non renseigné');
-    formData.append("Message", message.value.trim());
-
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    })
-      .then(async (response) => {
-        if (response.status === 200) {
-          form.style.display = 'none';
-          if (successMsg) successMsg.style.display = 'block';
-        } else {
-          throw new Error("Erreur serveur");
-        }
-      })
-      .catch((error) => {
-        alert("Erreur lors de l'envoi.");
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = originalText;
-      });
-  });
-}
-
 function initSmoothScroll() {
   const navbar = document.getElementById('navbar');
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
@@ -359,17 +229,3 @@ function initParallax() {
   }, { passive: true });
 }
 
-function initFileInput() {
-  const fileInput = document.getElementById('fichier');
-  const fileLabel = document.querySelector('label.file-upload-label[for="fichier"]');
-  if (!fileInput || !fileLabel) return;
-
-  fileInput.addEventListener('change', function () {
-    if (fileInput.files.length > 0) {
-      const name = fileInput.files[0].name;
-      fileLabel.innerHTML = '<i class="fas fa-check-circle"></i> ' + (name.length > 40 ? name.slice(0, 37) + '...' : name);
-    } else {
-      fileLabel.innerHTML = '<i class="fas fa-paperclip"></i> Joindre un fichier (PDF, Word, image)';
-    }
-  });
-}

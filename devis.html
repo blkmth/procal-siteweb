@@ -23,7 +23,7 @@
     <div class="container">
       <div class="service-hero-content">
         <h1 class="service-hero-title">Demandez votre <span class="highlight-gold">devis personnalisé</span></h1>
-        <p class="service-hero-desc">Remplissez le formulaire ci-dessous. Notre équipe analyse votre demande et vous
+        <p class="service-hero-desc">Envoyez-nous votre demande par email. Notre équipe analyse votre demande et vous
           répond sous 24 heures ouvrées.</p>
       </div>
     </div>
@@ -32,67 +32,17 @@
   <section id="devis" class="devis-section">
     <div class="container">
       <div class="devis-wrapper">
-        <form id="form-devis" class="devis-form" novalidate data-backend-ready="true">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nom">Nom complet <span class="required">*</span></label>
-              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label for="entreprise">Entreprise <span class="required">*</span></label>
-              <input type="text" id="entreprise" name="entreprise" placeholder="Votre société" required
-                autocomplete="organization" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="telephone">Téléphone <span class="required">*</span></label>
-              <input type="tel" id="telephone" name="telephone" placeholder="07 07 26 50 69" required
-                autocomplete="tel" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="Procal@procal-ci.com" required
-                autocomplete="email" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="prestation">Service demandé <span class="required">*</span></label>
-            <select id="prestation" name="prestation" required>
-              <option value="">— Sélectionnez un service —</option>
-              <option value="etalonnage">Étalonnage des instruments de mesure</option>
-              <option value="controle">Contrôle métrologique</option>
-              <option value="detecteurs">Détecteurs de métaux industriels</option>
-              <option value="aimants">Aimants &amp; séparateurs magnétiques</option>
-              <option value="metrologie-medicale">Métrologie médicale</option>
-              <option value="maintenance">Maintenance &amp; assistance technique</option>
-              <option value="autre">Autre</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="description">Description du besoin</label>
-            <textarea id="description" name="description" rows="5"
-              placeholder="Équipements, fréquence, contraintes, délais..."></textarea>
-          </div>
-          <div class="form-group">
-            <label for="fichier">Pièce jointe (optionnel)</label>
-            <div class="file-upload-wrapper">
-              <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
-              <label for="fichier" class="file-upload-label">
-                <i class="fas fa-paperclip"></i>
-                Joindre un fichier (PDF, Word, image)
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn-submit" id="btn-submit-devis">
+        <div class="devis-form mail-cta">
+          <i class="fas fa-envelope-open-text mail-cta__icon"></i>
+          <h3>Envoyez-nous votre demande par email</h3>
+          <p>Cliquez sur le bouton ci-dessous : votre messagerie s'ouvrira avec notre adresse déjà renseignée.
+            Indiquez votre nom, votre entreprise, votre téléphone, le service souhaité et la description de votre
+            besoin. Vous pouvez joindre vos documents (PDF, Word, images).</p>
+          <a href="mailto:Procal@procal-ci.com?subject=Demande%20de%20devis%20PROCAL" class="btn-submit">
             <i class="fas fa-paper-plane"></i>
-            Envoyer ma demande
-          </button>
-        </form>
-        <div class="form-success" id="success-devis" style="display:none;">
-          <i class="fas fa-circle-check"></i>
-          <h3>Demande envoyée avec succès</h3>
-          <p>Nous vous contacterons dans les <strong>24 heures</strong>.</p>
+            Envoyer ma demande par email
+          </a>
+        </div>
         </div>
       </div>
 

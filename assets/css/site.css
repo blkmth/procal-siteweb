@@ -3317,3 +3317,30 @@ p {
         margin-right: 0;
     }
 }
+/* Bloc contact par email (bouton mailto) */
+.mail-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.mail-cta__icon {
+    font-size: 2.5rem;
+    color: var(--brand);
+}
+
+.mail-cta h3 {
+    font-family: var(--font-title);
+    color: var(--text-dark);
+}
+
+.mail-cta p {
+    color: var(--text-mid);
+}
+
+.mail-cta .btn-submit {
+    text-decoration: none;
+}
