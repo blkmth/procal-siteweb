@@ -425,34 +425,6 @@ p {
     height: calc(var(--nav-logo-height, 58px) - 8px);
 }
 
-.site-footer__logo {
-    height: 400px;
-    width: auto;
-    max-width: 1000px;
-    object-fit: contain;
-    object-position: left center;
-    display: block;
-}
-
-.logo-main {
-    font-family: var(--font-title);
-    font-size: 4rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    display: block;
-}
-
-.logo-sub {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    display: block;
-}
-
 /* Liens de navigation */
 .nav-links {
     display: flex;
@@ -601,33 +573,6 @@ p {
 
 .nav-dropdown-menu li:last-child {
     border-bottom: none;
-}
-
-/* Bouton RDV doré dans la navbar */
-.btn-nav-rdv {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--brand);
-    color: var(--white);
-    font-family: var(--font-title);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    min-height: 44px;
-    border-radius: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 14px rgba(85, 148, 227, 0.25);
-}
-
-.btn-nav-rdv:hover {
-    background: var(--brand-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(85, 148, 227, 0.4);
 }
 
 /* Hamburger — visible uniquement sur mobile */
@@ -922,30 +867,36 @@ p {
     padding: 56px 0 120px;
 }
 
+/* Grille flexible : la dernière ligne incomplète est centrée */
 .cards-grid {
-    display: grid;
-    gap: 28px;
-    grid-template-columns: repeat(1, 1fr);
+    --cols: 1;
+    --gap: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
 }
 
-/* tablet */
+.cards-grid > * {
+    flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    min-width: 0;
+}
+
 @media (min-width: 700px) {
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        --cols: 2;
     }
 }
 
-/* desktop */
 @media (min-width: 1024px) {
     .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
+        --cols: 3;
     }
 }
 
-/* wide */
 @media (min-width: 1400px) {
     .cards-grid {
-        grid-template-columns: repeat(4, 1fr);
+        --cols: 4;
     }
 }
 
@@ -1046,7 +997,6 @@ p {
 .secteurs-hero__intro {
     text-rendering: optimizeLegibility;
 }
-
 
 .trust-badge {
     display: flex;
@@ -1292,7 +1242,6 @@ p {
     margin-bottom: 12px;
 }
 
-.secteurs-section .service-title,
 .service-card .service-title {
     font-size: 1.2rem;
 }
@@ -1539,29 +1488,6 @@ p {
     line-height: 1.7;
 }
 
-/* ════════════════════════════════════════════════════════════
-   SECTEURS D'ACTIVITÉ
-   ════════════════════════════════════════════════════════════ */
-
-.secteurs-section {
-    padding: var(--section-py) 0;
-    /* Fond visuel pour la section 'Secteurs' : image d'accueil optimisée */
-    background-image: url("../images/acceuil/slide3.webp");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.secteurs-section::before {
-    /* Overlay sombre pour garantir la lisibilité du texte sur l'image */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.48);
-    z-index: 1;
-}
-
 .secteurs-grid {
     display: flex;
     flex-direction: column;
@@ -1783,44 +1709,6 @@ p {
     margin: 0 auto;
 }
 
-.secteurs-section .service-card {
-    /* Make secteur cards true squares: width defines height via aspect-ratio */
-    position: relative;
-    /* Pour que le z-index fonctionne */
-    z-index: 2;
-    /* Au-dessus de l'overlay */
-    background: rgba(255, 255, 255, 0.95);
-    /* Fond légèrement transparent pour les cartes */
-    aspect-ratio: 1 / 1;
-    /* Force des carrés */
-    min-height: 0;
-    /* allow aspect-ratio to control height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 28px;
-    overflow: hidden;
-}
-
-.secteurs-section .service-card .service-title,
-.secteurs-section .service-card .service-desc,
-.secteurs-section .service-card .service-list li,
-.secteurs-section .service-card .btn-service {
-    color: var(--text-dark);
-    /* Ajuster si le fond de la carte est sombre */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    /* Ombre légère pour le texte */
-}
-
-/* Ensure lists scroll if content exceeds square height */
-.secteurs-section .service-card .service-list {
-    overflow: auto;
-}
-
-.secteurs-section .service-icon {
-    flex-shrink: 0;
-}
-
 .sectors-section {
     padding: var(--section-py) 0;
     background: var(--white);
@@ -1905,145 +1793,6 @@ p {
     border-radius: 6px;
     padding: 48px;
     box-shadow: var(--shadow-md);
-}
-
-/* Lignes de deux champs côte à côte */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* Groupe label + champ */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-family: var(--font-title);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dark);
-}
-
-.required {
-    color: var(--gold);
-    margin-left: 2px;
-}
-
-/* Champs de saisie */
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 14px 16px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    background: var(--light-bg);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    outline: none;
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-    appearance: none;
-    -webkit-appearance: none;
-}
-
-/* Focus state doré */
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
-    background: var(--white);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* Select : flèche personnalisée */
-.form-group select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C9A84C' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
-    cursor: pointer;
-}
-
-/* Upload fichier */
-.file-upload-wrapper {
-    position: relative;
-}
-
-.file-upload-wrapper input[type="file"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    overflow: hidden;
-}
-
-.file-upload-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 16px;
-    background: var(--light-bg);
-    border: 2px dashed var(--border);
-    border-radius: 3px;
-    font-family: var(--font-title);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--text-mid);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.file-upload-label:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(201, 168, 76, 0.05);
-}
-
-.file-upload-label i {
-    color: var(--gold);
-}
-
-/* Message de succès */
-.form-success {
-    text-align: center;
-    padding: 48px 24px;
-    background: var(--white);
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    border-radius: 6px;
-}
-
-.form-success i {
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: block;
-}
-
-.form-success h3 {
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-}
-
-.form-success p {
-    color: var(--text-mid);
-    font-size: 1rem;
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -2250,38 +1999,6 @@ p {
     border-radius: 6px;
     padding: 40px;
     box-shadow: var(--shadow-sm);
-}
-
-.contact-form .form-group label {
-    color: var(--text-dark);
-}
-
-.contact-form .form-group input,
-.contact-form .form-group textarea {
-    background: var(--light-bg);
-    border-color: var(--border);
-    color: var(--text-dark);
-}
-
-.contact-form .form-group input::placeholder,
-.contact-form .form-group textarea::placeholder {
-    color: #8a94a6;
-}
-
-.contact-form .form-group input:focus,
-.contact-form .form-group textarea:focus {
-    border-color: var(--brand);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(85, 148, 227, 0.15);
-}
-
-.contact-form .form-success {
-    background: var(--light-bg);
-    border-color: rgba(85, 148, 227, 0.35);
-}
-
-.contact-form .form-success p {
-    color: var(--text-mid);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -2608,63 +2325,6 @@ p {
         /* S'assure qu'il prend toute la largeur */
     }
 
-    .secteurs-section .service-card {
-        aspect-ratio: 1 / 1;
-        /* Force les éléments à être carrés */
-        min-height: auto;
-        /* Supprime la hauteur minimale fixe */
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        /* Version mobile : garder fond clair pour cohérence, texte sombre (plus foncé) */
-        background: rgba(255, 255, 255, 0.95);
-        color: var(--text-dark);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-sm);
-    }
-
-    .secteurs-section .service-card .service-icon {
-        margin-bottom: 12px;
-    }
-
-    .secteurs-section .service-card .service-title {
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-    }
-
-    .secteurs-section .service-card .service-desc {
-        font-size: 0.9rem;
-        margin-bottom: 12px;
-    }
-
-    .secteurs-section .service-card .service-list {
-        display: none;
-        /* Masque la liste sur mobile pour économiser de l'espace */
-    }
-
-    .secteurs-section .service-card .btn-service {
-        font-size: 0.9rem;
-        padding-top: 12px;
-        color: var(--text-dark);
-        border-top-color: rgba(0, 0, 0, 0.06);
-    }
-
-    /* Forcer le texte interne à la couleur sombre renforcée pour meilleur contraste */
-    .secteurs-section .service-card .service-title,
-    .secteurs-section .service-card .service-desc,
-    .secteurs-section .service-card .service-list li {
-        color: var(--text-dark) !important;
-        text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
-    }
-
-    /* Stats : 2 colonnes conservées, mais chiffre plus petit */
-    font-size: clamp(1.67rem, 6.3vw, 2.13rem);
-    line-height: 1.2;
-}
-
 #accueil.hero-section .hero-subtitle {
     font-size: clamp(1.1rem, 2.4vw, 1.32rem);
 }
@@ -2680,11 +2340,6 @@ p {
 }
 
 .why-cards {
-    grid-template-columns: 1fr;
-}
-
-/* Formulaire devis : 1 colonne */
-.form-row {
     grid-template-columns: 1fr;
 }
 
@@ -2719,16 +2374,7 @@ p {
 
 @media (max-width: 480px) {
 
-    /* Navbar : masque le texte RDV, garde l'icône */
-    .btn-nav-rdv {
-        font-size: 0;
-        /* masque le texte */
-        padding: 10px 14px;
-    }
-
-    .btn-nav-rdv i {
-        font-size: 1rem;
-    }
+    
 
     /* Stats : 1 colonne */
     .stats-grid {
@@ -3248,17 +2894,6 @@ p {
 .footer-services h4,
 .footer-contact h4 {
     font-size: 0.875rem;
-}
-
-/* Formulaires — labels lisibles */
-.form-group label {
-    font-size: var(--fs-nav);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    font-size: var(--fs-base);
 }
 
 /* Responsive logo & nav */

@@ -377,7 +377,6 @@ def build_page(slug, data):
   </section>
 
   <div id="site-footer"></div>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module" src="../../assets/js/main.js"></script>
 </body>
 </html>
