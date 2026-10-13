@@ -17,9 +17,10 @@
 }
 
 .site-footer__logo {
-  height: calc(var(--logo-height) * 2);
+  /* logo-web.png est recadré : même taille visible qu'avant avec ~1/2 de la hauteur */
+  height: calc(var(--logo-height) * 1.07);
   width: auto;
-  max-width: 600px;
+  max-width: 100%;
   object-fit: contain;
   object-position: left center;
 }
