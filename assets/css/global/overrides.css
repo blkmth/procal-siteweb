@@ -72,11 +72,6 @@ p,
 }
 
 /* Utilitaires layout */
-.devis-contact-block {
-  max-width: 780px;
-  margin: 3rem auto 0;
-}
-
 .service-details .container {
   padding: 3rem 0 4rem;
   text-align: center;

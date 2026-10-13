@@ -3322,25 +3322,151 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 16px;
     text-align: center;
 }
 
 .mail-cta__icon {
-    font-size: 2.5rem;
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(85, 148, 227, 0.12);
     color: var(--brand);
+    font-size: 1.6rem;
 }
 
+.mail-cta h2,
 .mail-cta h3 {
     font-family: var(--font-title);
     color: var(--text-dark);
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    line-height: 1.2;
+    margin: 0;
 }
 
 .mail-cta p {
     color: var(--text-mid);
+    margin: 0;
 }
 
 .mail-cta .btn-submit {
     text-decoration: none;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.mail-cta__alt {
+    font-size: 0.9rem;
+}
+
+.mail-cta__alt a {
+    color: var(--brand);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Variante alignée à gauche (page devis) */
+.mail-cta--left {
+    align-items: stretch;
+    text-align: left;
+    gap: 20px;
+}
+
+.mail-cta__head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mail-cta__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.mail-cta__list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--text-dark);
+}
+
+.mail-cta__list i {
+    color: var(--brand);
+    font-size: 0.85rem;
+}
+
+.mail-cta--left .mail-cta__alt {
+    text-align: center;
+}
+
+/* Page devis : carte email + coordonnées */
+.service-hero--compact {
+    padding-bottom: 56px;
+}
+
+.service-hero--compact .service-hero-desc {
+    margin-bottom: 0;
+}
+
+.devis-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.devis-layout .devis-form {
+    padding: 40px;
+}
+
+.devis-contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.devis-contact-card__title {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.contact-item p + strong {
+    margin-top: 12px;
+}
+
+/* Accueil : carte email centrée face aux coordonnées */
+.contact-grid .mail-cta {
+    align-self: center;
+}
+
+@media (max-width: 900px) {
+    .devis-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .devis-layout .devis-form,
+    .devis-contact-card {
+        padding: 28px 20px;
+    }
+
+    .mail-cta__icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.3rem;
+    }
 }

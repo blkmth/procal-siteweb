@@ -19,64 +19,72 @@
 <body data-base="./" data-home="index.html">
 
 
-  <section class="service-hero">
+  <section class="service-hero service-hero--compact">
     <div class="container">
       <div class="service-hero-content">
         <h1 class="service-hero-title">Demandez votre <span class="highlight-gold">devis personnalisé</span></h1>
-        <p class="service-hero-desc">Envoyez-nous votre demande par email. Notre équipe analyse votre demande et vous
-          répond sous 24 heures ouvrées.</p>
+        <p class="service-hero-desc">Envoyez-nous votre demande par email. Notre équipe l'analyse et vous répond sous
+          24 heures ouvrées.</p>
       </div>
     </div>
   </section>
 
   <section id="devis" class="devis-section">
     <div class="container">
-      <div class="devis-wrapper">
-        <div class="devis-form mail-cta">
-          <i class="fas fa-envelope-open-text mail-cta__icon"></i>
-          <h3>Envoyez-nous votre demande par email</h3>
-          <p>Cliquez sur le bouton ci-dessous : votre messagerie s'ouvrira avec notre adresse déjà renseignée.
-            Indiquez votre nom, votre entreprise, votre téléphone, le service souhaité et la description de votre
-            besoin. Vous pouvez joindre vos documents (PDF, Word, images).</p>
+      <div class="devis-layout">
+        <div class="devis-form mail-cta mail-cta--left">
+          <div class="mail-cta__head">
+            <span class="mail-cta__icon"><i class="fas fa-envelope-open-text"></i></span>
+            <h2>Votre demande par email</h2>
+          </div>
+          <p>Cliquez sur le bouton : votre messagerie s'ouvre avec notre adresse déjà renseignée. Pour une réponse
+            rapide, pensez à préciser :</p>
+          <ul class="mail-cta__list">
+            <li><i class="fas fa-check"></i> Votre nom et votre entreprise</li>
+            <li><i class="fas fa-check"></i> Un numéro de téléphone</li>
+            <li><i class="fas fa-check"></i> Le service souhaité (étalonnage, contrôle, maintenance…)</li>
+            <li><i class="fas fa-check"></i> Les équipements concernés, quantités et délais</li>
+            <li><i class="fas fa-check"></i> Vos documents en pièce jointe (PDF, Word, images)</li>
+          </ul>
           <a href="mailto:Procal@procal-ci.com?subject=Demande%20de%20devis%20PROCAL" class="btn-submit">
             <i class="fas fa-paper-plane"></i>
             Envoyer ma demande par email
           </a>
+          <p class="mail-cta__alt">ou écrivez directement à <a href="mailto:Procal@procal-ci.com">Procal@procal-ci.com</a></p>
         </div>
-        </div>
-      </div>
 
-      <aside class="contact-info devis-contact-block">
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <div>
-            <strong>Direction générale</strong>
-            <p class="contact-phones"><a href="tel:+2250707265069">07 07 26 50 69</a> / <a href="tel:+2250708861490">07
-                08 86 14 90</a></p>
-            <strong>Responsable technique</strong>
-            <p class="contact-phones"><a href="tel:+2250708599040">07 08 59 90 40</a></p>
-            <strong>Standard</strong>
-            <p class="contact-phones"><a href="tel:+2250757575787">07 57 57 57 87</a></p>
+        <aside class="contact-info devis-contact-card">
+          <h2 class="devis-contact-card__title">Nous joindre</h2>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <strong>Direction générale</strong>
+              <p class="contact-phones"><a href="tel:+2250707265069">07 07 26 50 69</a><a href="tel:+2250708861490">07 08 86 14 90</a></p>
+              <strong>Responsable technique</strong>
+              <p class="contact-phones"><a href="tel:+2250708599040">07 08 59 90 40</a></p>
+              <strong>Standard</strong>
+              <p class="contact-phones"><a href="tel:+2250757575787">07 57 57 57 87</a></p>
+            </div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div>
-            <strong>Email</strong>
-            <p><a href="mailto:Procal@procal-ci.com">Procal@procal-ci.com</a></p>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:Procal@procal-ci.com">Procal@procal-ci.com</a></p>
+            </div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
-          <div>
-            <strong>Adresse</strong>
-            <p>IMMEUBLE TOURE, QUARTIER BLACHON, BINGERVILLE</p>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Immeuble+Toure+Quartier+Blachon+Bingerville+Cote+d%27Ivoire"
-              class="contact-map-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-location-dot"></i>
-              Google Maps</a>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <strong>Adresse</strong>
+              <p>Immeuble Touré, Quartier Blachon, Bingerville</p>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Immeuble+Toure+Quartier+Blachon+Bingerville+Cote+d%27Ivoire"
+                class="contact-map-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-location-dot"></i>
+                Voir sur Google Maps</a>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
     </div>
   </section>
 
