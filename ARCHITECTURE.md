@@ -27,7 +27,7 @@ procal-site/
 │   ├── css/
 │   │   ├── main.css        # Point d'entrée CSS
 │   │   ├── site.css        # Styles de base
-│   │   ├── global/         # Variables, surcharges
+│   │   ├── global/         # Variables, surcharges, theme.css (design actuel, chargé en dernier)
 │   │   ├── components/     # Footer, etc.
 │   │   └── pages/          # À propos, etc.
 │   ├── js/
@@ -154,7 +154,7 @@ ou API backend (Node, PHP).
 |--------|------------------|
 | Texte accueil | `index.html` |
 | Menu / footer global | `partials/nav.html`, `partials/footer.html` |
-| Couleurs / tailles | `assets/css/global/variables.css` |
+| Couleurs / polices / design | `assets/css/global/theme.css` (variables en tête de fichier) |
 | Section à propos | `index.html` + `assets/css/pages/about.css` |
 | Nouvelle page service | Copier une page dans `pages/services/` ou lancer `python3 scripts/build-pages.py` |
 | Carrousel | Même structure que l’accueil : `hero-section` + `data-carousel` |
