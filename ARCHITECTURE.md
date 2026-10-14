@@ -27,12 +27,12 @@ procal-site/
 │   ├── css/
 │   │   ├── main.css        # Point d'entrée CSS
 │   │   ├── site.css        # Styles de base
-│   │   ├── global/         # Variables, surcharges
-│   │   ├── components/     # Footer, etc.
+│   │   ├── global/         # Variables, surcharges, theme.css (design actuel, chargé en dernier)
+│   │   ├── components/     # nav.css (barre de navigation), footer.css
 │   │   └── pages/          # À propos, etc.
 │   ├── js/
 │   │   ├── main.js         # Point d'entrée JS
-│   │   └── modules/        # carousel.js, layout.js, secteursCarousel.js
+│   │   └── modules/        # nav.js (menu), carousel.js, layout.js, secteursCarousel.js
 │   └── images/
 │       ├── logo/           # logo-web.png (version web recadrée)
 │       ├── acceuil/        # Slides hero accueil
@@ -153,8 +153,8 @@ ou API backend (Node, PHP).
 | Besoin | Fichier / action |
 |--------|------------------|
 | Texte accueil | `index.html` |
-| Menu / footer global | `partials/nav.html`, `partials/footer.html` |
-| Couleurs / tailles | `assets/css/global/variables.css` |
+| Menu / footer global | `partials/nav.html` + `assets/css/components/nav.css` + `assets/js/modules/nav.js`, `partials/footer.html` |
+| Couleurs / polices / design | `assets/css/global/theme.css` (variables en tête de fichier) |
 | Section à propos | `index.html` + `assets/css/pages/about.css` |
 | Nouvelle page service | Copier une page dans `pages/services/` ou lancer `python3 scripts/build-pages.py` |
 | Carrousel | Même structure que l’accueil : `hero-section` + `data-carousel` |

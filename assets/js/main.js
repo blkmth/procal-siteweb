@@ -2,95 +2,21 @@
  * PROCESS CALIBRATION — point d'entrée JavaScript
  */
 import { injectLayout } from './modules/layout.js';
+import { initNav } from './modules/nav.js';
 import { initCarousels } from './modules/carousel.js';
 import initSecteursCarousel from './modules/secteursCarousel.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   await injectLayout();
 
-  initNavbar();
-  initMobileMenu();
-  initNavDropdown();
+  initNav();
   initScrollAnimations();
   initCounters();
-  initNavActiveLinks();
   initSmoothScroll();
   initParallax();
   initCarousels();
   initSecteursCarousel();
 });
-
-function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
-
-  let lastScrollY = window.scrollY;
-
-  function handleNavbarScroll() {
-    const currentScrollY = window.scrollY;
-    navbar.classList.toggle('scrolled', currentScrollY > 50);
-
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      navbar.style.top = '-150px';
-    } else {
-      navbar.style.top = '0px';
-    }
-    lastScrollY = currentScrollY;
-  }
-
-  window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-  handleNavbarScroll();
-}
-
-function initMobileMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  if (!hamburger || !navLinks) return;
-
-  hamburger.addEventListener('click', function () {
-    const open = navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      const dd = document.getElementById('nav-services-dropdown');
-      if (dd) dd.classList.remove('open');
-    });
-  });
-
-  document.addEventListener('click', function (e) {
-    const dd = document.getElementById('nav-services-dropdown');
-    if (dd && !dd.contains(e.target) && !hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-      dd.classList.remove('open');
-    }
-  });
-}
-
-function initNavDropdown() {
-  const dropdown = document.getElementById('nav-services-dropdown');
-  const toggle = document.getElementById('nav-services-toggle');
-  if (!dropdown || !toggle) return;
-
-  toggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      dropdown.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
 
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.animate-fadeup');
@@ -167,34 +93,6 @@ function animateCounter(el) {
   requestAnimationFrame(step);
 }
 
-function initNavActiveLinks() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  if (!sections.length || !navLinks.length) return;
-
-  function setActiveLink() {
-    const navbar = document.getElementById('navbar');
-    const navbarHeight = navbar ? navbar.offsetHeight : 100;
-    const scrollPos = window.scrollY + navbarHeight + 20;
-    let currentSection = '';
-
-    sections.forEach(function (section) {
-      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(function (link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + currentSection);
-    });
-  }
-
-  window.addEventListener('scroll', setActiveLink, { passive: true });
-  setActiveLink();
-}
-
-
-
 function initSmoothScroll() {
   const navbar = document.getElementById('navbar');
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
@@ -204,7 +102,8 @@ function initSmoothScroll() {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const h = navbar ? navbar.offsetHeight : 100;
+      const bar = navbar && navbar.querySelector('.site-nav__bar');
+      const h = bar ? bar.getBoundingClientRect().bottom : 100;
       window.scrollTo({
         top: target.getBoundingClientRect().top + window.scrollY - h - 8,
         behavior: 'smooth'

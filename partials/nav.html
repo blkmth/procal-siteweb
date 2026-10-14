@@ -1,31 +1,102 @@
-<nav id="navbar" class="site-nav">
-  <div class="nav-container">
-    <a href="{{ROOT}}{{HOME}}#accueil" class="nav-logo">
-      <img src="{{ROOT}}assets/images/logo/logo-web.png" alt="PROCAL — Process Calibration" class="nav-logo__img" width="466" height="240" />
+<header id="navbar" class="site-nav">
+  <nav class="site-nav__bar" aria-label="Navigation principale">
+    <a href="{{ROOT}}{{HOME}}" class="site-nav__logo" aria-label="PROCESS CALIBRATION — accueil">
+      <img src="{{ROOT}}assets/images/logo/logo-web.png" alt="PROCESS CALIBRATION" width="466" height="240" />
     </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="{{ROOT}}{{HOME}}#accueil">Accueil</a></li>
-      <li><a href="{{ROOT}}secteurs.html">Secteurs</a></li>
-      <li class="nav-dropdown" id="nav-services-dropdown">
-        <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-controls="nav-services-menu">
-          Services <i class="fas fa-chevron-down" aria-hidden="true"></i>
+
+    <ul class="site-nav__links">
+      <li><a class="site-nav__link" href="{{ROOT}}{{HOME}}" data-nav="accueil">Accueil</a></li>
+      <li class="site-nav__item--mega">
+        <button type="button" class="site-nav__link site-nav__toggle" aria-expanded="false" aria-controls="nav-mega"
+          data-nav="services">
+          Services
+          <svg class="site-nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
         </button>
-        <ul class="nav-dropdown-menu" id="nav-services-menu" role="menu">
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/etalonnage.html">Étalonnage des instruments</a></li>
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/controle.html">Contrôle métrologique</a></li>
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/detecteurs.html">Détecteurs de métaux</a></li>
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/aimants.html">Aimants &amp; séparateurs</a></li>
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/metrologie-medicale.html">Métrologie médicale</a></li>
-          <li role="none"><a role="menuitem" href="{{ROOT}}pages/services/maintenance.html">Maintenance &amp; assistance</a></li>
+        <div class="site-nav__mega" id="nav-mega">
+          <div class="site-nav__mega-grid">
+            <a href="{{ROOT}}pages/services/etalonnage.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></span>
+              <span><strong>Étalonnage</strong><small>Pression, température, masse, débit</small></span>
+            </a>
+            <a href="{{ROOT}}pages/services/controle.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-ruler-combined" aria-hidden="true"></i></span>
+              <span><strong>Contrôle métrologique</strong><small>Vérification et conformité des instruments</small></span>
+            </a>
+            <a href="{{ROOT}}pages/services/detecteurs.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-magnifying-glass" aria-hidden="true"></i></span>
+              <span><strong>Détecteurs de métaux</strong><small>Validation des performances en ligne</small></span>
+            </a>
+            <a href="{{ROOT}}pages/services/aimants.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-magnet" aria-hidden="true"></i></span>
+              <span><strong>Aimants &amp; séparateurs</strong><small>Mesure et certification magnétique</small></span>
+            </a>
+            <a href="{{ROOT}}pages/services/metrologie-medicale.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-heart-pulse" aria-hidden="true"></i></span>
+              <span><strong>Métrologie médicale</strong><small>Dispositifs biomédicaux et hospitaliers</small></span>
+            </a>
+            <a href="{{ROOT}}pages/services/maintenance.html" class="site-nav__mega-item">
+              <span class="site-nav__mega-icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></span>
+              <span><strong>Maintenance &amp; assistance</strong><small>Interventions préventives et correctives</small></span>
+            </a>
+          </div>
+          <div class="site-nav__mega-foot">
+            <span>Un besoin spécifique ? Réponse sous 24 h.</span>
+            <a href="{{ROOT}}devis.html">Demander un devis <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li><a class="site-nav__link" href="{{ROOT}}secteurs.html" data-nav="secteurs">Secteurs</a></li>
+      <li><a class="site-nav__link" href="{{ROOT}}{{HOME}}#pourquoi-nous" data-nav="pourquoi-nous">Expertise</a></li>
+      <li><a class="site-nav__link" href="{{ROOT}}a-propos.html" data-nav="a-propos">À propos</a></li>
+      <li><a class="site-nav__link" href="{{ROOT}}{{HOME}}#contact" data-nav="contact">Contact</a></li>
+    </ul>
+
+    <div class="site-nav__actions">
+      <a href="tel:+2250757575787" class="site-nav__phone" aria-label="Appeler le 07 57 57 57 87" title="07 57 57 57 87">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="{{ROOT}}devis.html" class="site-nav__cta">
+        Devis gratuit <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <button type="button" class="site-nav__burger" aria-label="Ouvrir le menu" aria-expanded="false"
+        aria-controls="nav-panel">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="site-nav__panel" id="nav-panel">
+    <ul class="site-nav__panel-links">
+      <li><a href="{{ROOT}}{{HOME}}" data-nav="accueil">Accueil</a></li>
+      <li>
+        <button type="button" class="site-nav__panel-toggle" aria-expanded="false" aria-controls="nav-panel-services">
+          Services
+          <svg class="site-nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
+        </button>
+        <ul class="site-nav__panel-sub" id="nav-panel-services">
+          <li><a href="{{ROOT}}pages/services/etalonnage.html"><i class="fas fa-gauge-high" aria-hidden="true"></i> Étalonnage</a></li>
+          <li><a href="{{ROOT}}pages/services/controle.html"><i class="fas fa-ruler-combined" aria-hidden="true"></i> Contrôle métrologique</a></li>
+          <li><a href="{{ROOT}}pages/services/detecteurs.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i> Détecteurs de métaux</a></li>
+          <li><a href="{{ROOT}}pages/services/aimants.html"><i class="fas fa-magnet" aria-hidden="true"></i> Aimants &amp; séparateurs</a></li>
+          <li><a href="{{ROOT}}pages/services/metrologie-medicale.html"><i class="fas fa-heart-pulse" aria-hidden="true"></i> Métrologie médicale</a></li>
+          <li><a href="{{ROOT}}pages/services/maintenance.html"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Maintenance &amp; assistance</a></li>
         </ul>
       </li>
-      <li><a href="{{ROOT}}{{HOME}}#pourquoi-nous">Expertise</a></li>
-      <li><a href="{{ROOT}}a-propos.html">À propos</a></li>
-      <li><a href="{{ROOT}}{{HOME}}#contact">Contact</a></li>
+      <li><a href="{{ROOT}}secteurs.html" data-nav="secteurs">Secteurs</a></li>
+      <li><a href="{{ROOT}}{{HOME}}#pourquoi-nous" data-nav="pourquoi-nous">Expertise</a></li>
+      <li><a href="{{ROOT}}a-propos.html" data-nav="a-propos">À propos</a></li>
+      <li><a href="{{ROOT}}{{HOME}}#contact" data-nav="contact">Contact</a></li>
     </ul>
-    
-    <button type="button" class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="site-nav__panel-foot">
+      <a href="{{ROOT}}devis.html" class="site-nav__cta site-nav__cta--block">Demander un devis gratuit <i
+          class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <div class="site-nav__panel-quick">
+        <a href="tel:+2250757575787"><i class="fas fa-phone" aria-hidden="true"></i> Appeler</a>
+        <a href="https://wa.me/2250757575787" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"
+            aria-hidden="true"></i> WhatsApp</a>
+        <a href="mailto:procal@procal-ci.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+      </div>
+    </div>
   </div>
-</nav>
+  <div class="site-nav__backdrop" aria-hidden="true"></div>
+</header>
